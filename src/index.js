@@ -4,6 +4,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import reducers from './reducers';
+import registerServiceWorker from './registerServiceWorker';
 import App from './containers/App';
 
 const middlewares = [];
@@ -23,3 +24,4 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root')
 );
+registerServiceWorker();
