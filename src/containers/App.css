@@ -1,3 +1,9 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
 .App {
   text-align: center;
 }
@@ -8,14 +14,14 @@
 }
 
 .App-header {
-  background-color: #222;
-  height: 150px;
+  background-color: #D5CFC4;
+  height: 80px;
   padding: 20px;
   color: white;
 }
 
 .App-title {
-  font-size: 1.5em;
+  font-size: 3em;
 }
 
 .App-intro {

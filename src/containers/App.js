@@ -1,35 +1,34 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Products from '../components/Products';
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
 import { fetchProducts } from '../actions';
 
 class App extends Component {
   componentDidMount() {
-    console.log('88888');
-    console.log(this.props.fetchProducts());
+    this.props.fetchProducts();
   }
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+          {/* <img src={logo} className="App-logo" alt="logo" /> */}
+          <h1 className="App-title">accessories</h1>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-        <div>
-          <Products />
+        <div style={{ margin: '40px 0' }}>
+          {this.props.products && <Products products={this.props.products} />}
         </div>
+        <footer className="App-header">
+          {/* <img src={logo} className="App-logo" alt="logo" /> */}
+        </footer>
       </div>
     );
   }
 }
 
-const mapStateToProps = ({ accessories: { products } }) => ({
-  products
+const mapStateToProps = ({ accessories }) => ({
+  products: accessories.products
 });
 
 const mapDispatchToProps = {

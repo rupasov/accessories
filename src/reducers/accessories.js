@@ -1,7 +1,7 @@
 import { SAVE_PRODUCTS } from '../constants';
 
 const initState = {
-  products: {}
+  products: null
 };
 
 const accessories = (state = initState, action) => {

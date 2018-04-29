@@ -9,12 +9,12 @@ import App from './containers/App';
 
 const middlewares = [];
 
+middlewares.push(thunk);
+
 if (process.env.NODE_ENV === 'development') {
   const { logger } = require('redux-logger');
   middlewares.push(logger);
 }
-
-middlewares.push(thunk);
 
 const store = compose(applyMiddleware(...middlewares))(createStore)(reducers);
 
@@ -24,4 +24,5 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root')
 );
+
 registerServiceWorker();

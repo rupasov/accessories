@@ -3,6 +3,7 @@
     {
       "id": "AC01",
       "label": "bugaboo footmuff",
+      "price":  "129.95",
       "colours": {
         "001_OR": {
           "id": "OR",
@@ -39,6 +40,7 @@
     {
       "id": "AC02",
       "label": "bugaboo soft wool blanket",
+      "price":  "109.95",
       "colours": {
         "001_LG": {
           "id": "LG",
@@ -65,6 +67,7 @@
     {
       "id": "AC03",
       "label": "bugaboo seat liner",
+      "price":  "58.95",
       "colours": {
         "001_OG": {
           "id": "OG",
@@ -91,6 +94,7 @@
     {
       "id": "AC04",
       "label": "bugaboo faux leather upgrade set",
+      "price":  "44.50",
       "colours": {
         "001_BL": {
           "id": "BL",
@@ -107,6 +111,7 @@
     {
       "id": "AC05",
       "label": "bugaboo breezy sun canopy",
+      "price":  "79.50",
       "colours": {
         "001_SP": {
           "id": "SP",
@@ -133,6 +138,7 @@
     {
       "id": "AC06",
       "label": "bugaboo breezy baby cocoon",
+      "price":  "99.95",
       "colours": {
         "001_SY": {
           "id": "SY",
