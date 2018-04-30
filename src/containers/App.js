@@ -1,9 +1,21 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Products from '../components/Products';
-//import logo from './logo.svg';
+import Popup from '../components/Popup';
+import Colors from '../components/Colors';
 import './App.css';
 import { fetchProducts } from '../actions';
+import RefreshIndicator from 'material-ui/RefreshIndicator';
+
+const style = {
+  container: {
+    position: 'relative'
+  },
+  refresh: {
+    display: 'inline-block',
+    position: 'relative'
+  }
+};
 
 class App extends Component {
   componentDidMount() {
@@ -16,8 +28,19 @@ class App extends Component {
           {/* <img src={logo} className="App-logo" alt="logo" /> */}
           <h1 className="App-title">accessories</h1>
         </header>
-        <div style={{ margin: '40px 0' }}>
-          {this.props.products && <Products products={this.props.products} />}
+        <div style={{ margin: '40px 0', textAlign: 'center' }}>
+          {!this.props.products ? (
+            <RefreshIndicator
+              size={50}
+              left={0}
+              top={0}
+              loadingColor="#000"
+              status="loading"
+              style={style.refresh}
+            />
+          ) : (
+            <Products products={this.props.products} />
+          )}
         </div>
         <footer className="App-header">
           {/* <img src={logo} className="App-logo" alt="logo" /> */}

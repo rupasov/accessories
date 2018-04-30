@@ -15,6 +15,7 @@ const Products = ({ products }) => (
             label={LABEL}
             price={product.price}
             name={nameFormatter(product.label)}
+            colors={product.colours}
           />
         </Col>
       ))}
