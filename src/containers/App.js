@@ -25,7 +25,6 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          {/* <img src={logo} className="App-logo" alt="logo" /> */}
           <h1 className="App-title">accessories</h1>
         </header>
         <div style={{ margin: '40px 0', textAlign: 'center' }}>
@@ -39,7 +38,10 @@ class App extends Component {
               style={style.refresh}
             />
           ) : (
-            <Products products={this.props.products} />
+            <Products
+              products={this.props.products}
+              selectedColors={this.props.selectedColors}
+            />
           )}
         </div>
         <footer className="App-header">
@@ -51,7 +53,8 @@ class App extends Component {
 }
 
 const mapStateToProps = ({ accessories }) => ({
-  products: accessories.products
+  products: accessories.products,
+  selectedColors: accessories.selectedColors
 });
 
 const mapDispatchToProps = {

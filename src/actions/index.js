@@ -6,7 +6,7 @@ export const fetchProducts = () => dispatch =>
     .then(products => dispatch(saveProducts(products)))
     .catch(e => console.log(`Something went wrong: ${e}`));
 
-export const saveProducts = products => ({
+const saveProducts = products => ({
   type: SAVE_PRODUCTS,
   products
 });

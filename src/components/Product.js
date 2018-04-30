@@ -52,7 +52,7 @@ class Product extends React.Component {
   };
 
   render() {
-    const { src, name, label, price, colors } = this.props;
+    const { src, name, label, price, colors, selectedColorKey } = this.props;
     return (
       <div>
         <div
@@ -76,7 +76,7 @@ class Product extends React.Component {
           animation={PopoverAnimationVertical}
         >
           <Menu>
-            <Colors colors={colors} />
+            <Colors colors={colors} selectedColorKey={selectedColorKey} />
           </Menu>
         </Popover>
       </div>
