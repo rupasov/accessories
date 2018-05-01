@@ -11,6 +11,7 @@ const accessories = (state = initState, action) => {
       return {
         ...state,
         products: action.products,
+        //TODO this needs to be refactored, i am too sleepy to do it :(
         selectedColors: fromPairs(
           map(
             action.products.map(product => ({

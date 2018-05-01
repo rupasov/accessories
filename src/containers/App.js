@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import Products from '../components/Products';
-import './App.css';
+import Header from '../components/Header';
+import Loader from '../components/Loader';
+import Footer from '../components/Footer';
 import { fetchProducts, changeColor } from '../actions';
-import RefreshIndicator from 'material-ui/RefreshIndicator';
+import './App.css';
 
-const style = {
+const styles = {
   container: {
-    position: 'relative'
-  },
-  refresh: {
-    display: 'inline-block',
-    position: 'relative'
+    margin: '40px 0',
+    textAlign: 'center'
   }
 };
 
@@ -20,40 +20,37 @@ class App extends Component {
     this.props.fetchProducts();
   }
   render() {
+    const { products, selectedColors, changeColor } = this.props;
     return (
       <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">accessories</h1>
-        </header>
-        <div style={{ margin: '40px 0', textAlign: 'center' }}>
-          {!this.props.products ? (
-            <RefreshIndicator
-              size={50}
-              left={0}
-              top={0}
-              loadingColor="#000"
-              status="loading"
-              style={style.refresh}
-            />
+        <Header str="accessories" />
+        <div style={styles.container}>
+          {!products ? (
+            <Loader />
           ) : (
             <Products
-              products={this.props.products}
-              selectedColors={this.props.selectedColors}
-              changeColor={this.props.changeColor}
+              products={products}
+              selectedColors={selectedColors}
+              changeColor={changeColor}
             />
           )}
         </div>
-        <footer className="App-header">
-          {/* <img src={logo} className="App-logo" alt="logo" /> */}
-        </footer>
+        <Footer />
       </div>
     );
   }
 }
 
-const mapStateToProps = ({ accessories }) => ({
-  products: accessories.products,
-  selectedColors: accessories.selectedColors
+App.propTypes = {
+  products: PropTypes.array,
+  selectedColors: PropTypes.object,
+  fetchProducts: PropTypes.func,
+  changeColor: PropTypes.func
+};
+
+const mapStateToProps = ({ accessories: { products, selectedColors } }) => ({
+  products,
+  selectedColors
 });
 
 const mapDispatchToProps = {

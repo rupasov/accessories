@@ -5,12 +5,7 @@ body {
   background-color: #EFEEE9;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
+.App-section {
   background-color: #D5CFC4;
   height: 80px;
   padding: 20px;
