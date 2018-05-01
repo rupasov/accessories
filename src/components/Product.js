@@ -1,32 +1,8 @@
-import React, { Component } from 'react';
-import { Grid, Row, Col } from 'react-flexbox-grid';
-import { camelize, nameFormatter } from '../util/helper';
+import React from 'react';
 import Popover, { PopoverAnimationVertical } from 'material-ui/Popover';
-import Paper from 'material-ui/Paper';
-import { List, ListItem } from 'material-ui/List';
-
 import Menu from 'material-ui/Menu';
-import MenuItem from 'material-ui/MenuItem';
 import Colors from '../components/Colors';
-import Avatar from 'material-ui/Avatar';
 
-import {
-  blue300,
-  indigo900,
-  orange200,
-  deepOrange300,
-  pink400,
-  purple500
-} from 'material-ui/styles/colors';
-const styles = {
-  chip: {
-    margin: 4
-  },
-  wrapper: {
-    display: 'flex',
-    flexWrap: 'wrap'
-  }
-};
 class Product extends React.Component {
   constructor(props) {
     super(props);
@@ -52,7 +28,16 @@ class Product extends React.Component {
   };
 
   render() {
-    const { src, name, label, price, colors, selectedColorKey } = this.props;
+    const {
+      src,
+      name,
+      label,
+      price,
+      colors,
+      selectedColorKey,
+      productId,
+      changeColor
+    } = this.props;
     return (
       <div>
         <div
@@ -63,7 +48,7 @@ class Product extends React.Component {
           <div style={{ textAlign: 'left' }}>
             <p>{label}</p>
             <p style={{ fontWeight: 'bold' }}>{name}</p>
-            <p style={{ fontStyle: 'italic' }}>€ {price}</p>
+            <p style={{ fontStyle: 'italic', color: '#6F6F6F' }}>€ {price}</p>
             <hr />
           </div>
         </div>
@@ -76,7 +61,12 @@ class Product extends React.Component {
           animation={PopoverAnimationVertical}
         >
           <Menu>
-            <Colors colors={colors} selectedColorKey={selectedColorKey} />
+            <Colors
+              colors={colors}
+              selectedColorKey={selectedColorKey}
+              productId={productId}
+              changeColor={changeColor}
+            />
           </Menu>
         </Popover>
       </div>

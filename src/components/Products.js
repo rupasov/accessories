@@ -1,11 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import Product from './Product';
 import { LABEL } from '../constants';
-import { camelize, nameFormatter } from '../util/helper';
-import images from '../util/images';
+import { nameFormatter } from '../util/helper';
 
-const Products = ({ products, selectedColors }) => (
+const Products = ({ products, selectedColors, changeColor }) => (
   <Grid fluid>
     <Row>
       {products.map(product => {
@@ -19,6 +18,8 @@ const Products = ({ products, selectedColors }) => (
               name={nameFormatter(product.label)}
               colors={product.colours}
               selectedColorKey={initKey}
+              productId={product.id}
+              changeColor={changeColor}
             />
           </Col>
         );

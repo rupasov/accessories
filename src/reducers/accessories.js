@@ -1,8 +1,8 @@
-import { SAVE_PRODUCTS } from '../constants';
+import { SAVE_PRODUCTS, CHANGE_COLOR } from '../constants';
 import { fromPairs, map } from 'lodash';
 const initState = {
   products: null,
-  selectedColors: []
+  selectedColors: {}
 };
 
 const accessories = (state = initState, action) => {
@@ -20,6 +20,14 @@ const accessories = (state = initState, action) => {
             i => [i.key, i.val]
           )
         )
+      };
+    case CHANGE_COLOR:
+      return {
+        ...state,
+        selectedColors: {
+          ...state.selectedColors,
+          [action.productId]: action.colorId
+        }
       };
     default:
       return state;

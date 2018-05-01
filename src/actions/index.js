@@ -1,4 +1,4 @@
-import { SAVE_PRODUCTS } from '../constants';
+import { SAVE_PRODUCTS, CHANGE_COLOR } from '../constants';
 import { getProducts } from '../util/requests';
 
 export const fetchProducts = () => dispatch =>
@@ -9,4 +9,10 @@ export const fetchProducts = () => dispatch =>
 const saveProducts = products => ({
   type: SAVE_PRODUCTS,
   products
+});
+
+export const changeColor = (productId, colorId) => ({
+  type: CHANGE_COLOR,
+  productId,
+  colorId
 });

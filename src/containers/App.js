@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Products from '../components/Products';
-import Popup from '../components/Popup';
-import Colors from '../components/Colors';
 import './App.css';
-import { fetchProducts } from '../actions';
+import { fetchProducts, changeColor } from '../actions';
 import RefreshIndicator from 'material-ui/RefreshIndicator';
 
 const style = {
@@ -41,6 +39,7 @@ class App extends Component {
             <Products
               products={this.props.products}
               selectedColors={this.props.selectedColors}
+              changeColor={this.props.changeColor}
             />
           )}
         </div>
@@ -58,7 +57,8 @@ const mapStateToProps = ({ accessories }) => ({
 });
 
 const mapDispatchToProps = {
-  fetchProducts
+  fetchProducts,
+  changeColor
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
