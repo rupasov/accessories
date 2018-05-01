@@ -1,8 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import Product from './Product';
 import { LABEL } from '../constants';
-import { nameFormatter } from '../util/helper';
 
 const Products = ({ products, selectedColors, changeColor }) => (
   <Grid fluid>
@@ -15,7 +15,7 @@ const Products = ({ products, selectedColors, changeColor }) => (
               src={product.colours[initKey].src}
               label={LABEL}
               price={product.colours[initKey].price}
-              name={nameFormatter(product.label)}
+              name={product.label.replace('bugaboo ', '')}
               colors={product.colours}
               selectedColorKey={initKey}
               productId={product.id}
@@ -27,5 +27,11 @@ const Products = ({ products, selectedColors, changeColor }) => (
     </Row>
   </Grid>
 );
+
+Products.propTypes = {
+  products: PropTypes.array,
+  selectedColors: PropTypes.object,
+  changeColor: PropTypes.func
+};
 
 export default Products;

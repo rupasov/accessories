@@ -2,9 +2,6 @@ import React from 'react';
 import RefreshIndicator from 'material-ui/RefreshIndicator';
 
 const style = {
-  container: {
-    position: 'relative'
-  },
   refresh: {
     display: 'inline-block',
     position: 'relative'

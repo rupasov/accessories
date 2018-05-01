@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Popover, { PopoverAnimationVertical } from 'material-ui/Popover';
 import Menu from 'material-ui/Menu';
 import Colors from '../components/Colors';
 
-class Product extends React.Component {
+const styles = {
+  container: { padding: '0 60px', cursor: 'pointer' },
+  image: { width: '100%' },
+  infoContainer: { textAlign: 'left' },
+  name: { fontWeight: 'bold' },
+  price: { fontStyle: 'italic', color: '#6F6F6F' }
+};
+
+class Product extends Component {
   constructor(props) {
     super(props);
 
@@ -40,15 +49,12 @@ class Product extends React.Component {
     } = this.props;
     return (
       <div>
-        <div
-          style={{ padding: '0 60px', cursor: 'pointer' }}
-          onClick={this.handleClick}
-        >
-          <img src={src} alt={name} style={{ width: '100%' }} />
-          <div style={{ textAlign: 'left' }}>
+        <div style={styles.container} onClick={this.handleClick}>
+          <img src={src} alt={name} style={styles.image} />
+          <div style={styles.infoContainer}>
             <p>{label}</p>
-            <p style={{ fontWeight: 'bold' }}>{name}</p>
-            <p style={{ fontStyle: 'italic', color: '#6F6F6F' }}>€ {price}</p>
+            <p style={styles.name}>{name}</p>
+            <p style={styles.price}>€ {price}</p>
             <hr />
           </div>
         </div>
@@ -73,5 +79,16 @@ class Product extends React.Component {
     );
   }
 }
+
+Product.propTypes = {
+  src: PropTypes.string,
+  name: PropTypes.string,
+  label: PropTypes.string,
+  price: PropTypes.string,
+  colors: PropTypes.object,
+  selectedColorKey: PropTypes.string,
+  productId: PropTypes.string,
+  changeColor: PropTypes.func
+};
 
 export default Product;
